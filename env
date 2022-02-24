@@ -1,2 +1,2 @@
-MONGODB_URL="mongodb://localhost:27017/demo"
+MONGODB_URL="mongodb://172.31.73.3:27017/demo"
 PORT=3000
