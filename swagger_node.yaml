@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: swagger-deployment
+   labels:
+     app: swagger
+spec:
+   replicas: 2
+   selector:
+     matchLabels:
+       app: swagger
+   template:
+     metadata:
+       labels:
+         app: swagger
+     spec:
+       containers:
+       - name: swagger
+         image: 619942913628.dkr.ecr.us-east-1.amazonaws.com/kube_nodejs:nodejs
+#         envFrom:
+#         - configMapRef:
+#             name: postgres-config
+         ports:
+         - containerPort: 3000 
+         resources: 
+           limits: 
+             cpu: 200m
+             memory: 500Mi
+           requests:
+             cpu: 100m
+             memory: 500Mi
